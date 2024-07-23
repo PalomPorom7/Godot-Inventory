@@ -22,6 +22,7 @@ buses/default_bus_layout=""
 
 File="*res://Scripts/Autoloads/file.gd"
 Music="*res://Scripts/Autoloads/music.gd"
+Global="*res://Scripts/Autoloads/global.gd"
 
 [display]
 

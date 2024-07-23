@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dil80q73hnvbt"]
+[gd_scene load_steps=32 format=3 uid="uid://dil80q73hnvbt"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/game_manager.gd" id="1_8pybo"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_16ona"]
@@ -9,10 +9,12 @@
 [ext_resource type="Script" path="res://Scripts/UI/menu.gd" id="6_dr2w1"]
 [ext_resource type="Script" path="res://Scripts/Managers/event_manager.gd" id="6_lq361"]
 [ext_resource type="Script" path="res://Scripts/Events/camera.gd" id="7_dbeox"]
+[ext_resource type="Script" path="res://Scripts/UI/wallet.gd" id="8_fiawx"]
 [ext_resource type="Script" path="res://Scripts/UI/fade.gd" id="8_v3vli"]
 [ext_resource type="Script" path="res://Scripts/UI/dialog.gd" id="9_72i8y"]
 [ext_resource type="PackedScene" uid="uid://cjk5t1el4suya" path="res://Scenes/settings_menu.tscn" id="9_iopaj"]
 [ext_resource type="Texture2D" uid="uid://b8xkq2nlu8ff6" path="res://Imported Assets/UI/BoxesBanners/Box_Orange_Rounded.png" id="9_pkuuh"]
+[ext_resource type="Texture2D" uid="uid://cj1rbj0sacwn3" path="res://Imported Assets/UI/Icons/Icon_Small_Coin.png" id="9_xcrha"]
 [ext_resource type="Texture2D" uid="uid://dj7v5xjevsp4u" path="res://Imported Assets/UI/Icons/Icon_Small_Blank_Arrow.png" id="10_1khn6"]
 [ext_resource type="FontFile" uid="uid://cal1olhubng48" path="res://Imported Assets/Fonts/Celtica-Book.ttf" id="10_p2meq"]
 [ext_resource type="FontFile" uid="uid://dtdebvoxhhvdr" path="res://Imported Assets/Fonts/MorrisRomanBlack.ttf" id="11_j2tnh"]
@@ -109,6 +111,34 @@ script = ExtResource("6_lq361")
 script = ExtResource("7_dbeox")
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Wallet" type="HBoxContainer" parent="UI"]
+offset_left = 32.0
+offset_top = -42.0
+offset_right = 336.0
+script = ExtResource("8_fiawx")
+_on_screen_position = Vector2(32, 32)
+_off_screen_position = Vector2(32, -42)
+
+[node name="Icon" type="TextureRect" parent="UI/Wallet"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+texture = ExtResource("9_xcrha")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Counter" type="Label" parent="UI/Wallet"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("11_j2tnh")
+theme_override_font_sizes/font_size = 48
+text = "9999999"
+vertical_alignment = 1
+
+[node name="Autohide" type="Timer" parent="UI/Wallet"]
+wait_time = 3.0
+one_shot = true
 
 [node name="Dialog" type="Control" parent="UI"]
 visible = false
@@ -247,6 +277,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_v3vli")
 
+[connection signal="timeout" from="UI/Wallet/Autohide" to="UI/Wallet" method="close"]
 [connection signal="pressed" from="UI/Dialog/Box/Continue" to="UI/Dialog" method="_on_continue_pressed"]
 [connection signal="pressed" from="UI/Dialog/Options/Option 0" to="UI/Dialog" method="_on_option_pressed" binds= [0]]
 [connection signal="pressed" from="UI/Dialog/Options/Option 1" to="UI/Dialog" method="_on_option_pressed" binds= [1]]

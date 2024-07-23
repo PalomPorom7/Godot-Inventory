@@ -1,16 +1,11 @@
 res://Scenes/game.tscn
 res://Imported Assets/Dungeon/dungeon_mesh_library.tres
 res://Scenes/Characters/character_animations.tres
-res://Meshes/single_coin.tres
-res://Materials/copper.tres
 res://menu_buttons.tres
-res://Scripts/UI/counter.gd
 res://Scenes/Levels/dungeon.tscn
-res://Scripts/Autoloads/global.gd
-res://Scripts/Autoloads/file.gd
-res://Scripts/Managers/game_manager.gd
-res://Scripts/coin_stack.gd
 res://Scripts/Custom Resources/progress.gd
-res://Scripts/Events/proximity_event.gd
-res://default_bus_layout.tres
-res://Scenes/Characters/barbarian.tscn
+res://Scripts/UI/counter.gd
+res://Scenes/Items/coin_stack.gd
+res://Scripts/Events/coin_stack.gd
+res://Scripts/Autoloads/global.gd
+res://Scripts/UI/wallet.gd

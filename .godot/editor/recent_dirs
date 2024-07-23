@@ -1,11 +1,9 @@
+res://Scenes/Items
 res://Scripts/Autoloads
+res://Scripts/Events
 res://Scripts/UI
-res://Meshes
-res://Materials
-res://Scenes/Equipment
 res://Imported Assets/Dungeon
 res://Scenes/Characters
-res://Scripts/Events
 res://
 res://Scripts
 res://Scripts/Managers
