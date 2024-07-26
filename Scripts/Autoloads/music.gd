@@ -4,6 +4,7 @@ extends AudioStreamPlayer
 var _tween : Tween
 
 func _ready():
+	bus = "Music"
 	set_linear_volume(0)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -20,11 +21,11 @@ func set_linear_volume(linear_volume : float):
 func play_track(track : AudioStream, duration : float = _duration) -> Signal:
 	if playing:
 		if stream == track:
-			return _fade_volume(File.settings.volume, duration)
+			return _fade_volume(1, duration)
 		await _fade_volume(0, duration)
 	stream = track
 	play()
-	return _fade_volume(File.settings.volume, duration)
+	return _fade_volume(1, duration)
 
 func fade_out(duration : float = _duration):
 	await _fade_volume(0, duration)

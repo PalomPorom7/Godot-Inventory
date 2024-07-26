@@ -49,11 +49,31 @@ text = "Camera Invert Y"
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Volume Label" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="Master Volume Label" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
-text = "Volume"
+text = "Master Volume"
 
-[node name="Volume" type="HSlider" parent="VBoxContainer/GridContainer"]
+[node name="Master Volume" type="HSlider" parent="VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="Music Volume Label" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="Music Volume" type="HSlider" parent="VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="SFX Volume Label" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Sound Effects"
+
+[node name="SFX Volume" type="HSlider" parent="VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 max_value = 1.0
@@ -78,6 +98,8 @@ text = "Close"
 
 [connection signal="toggled" from="VBoxContainer/GridContainer/Camera Invert X" to="." method="_on_camera_invert_x_toggled"]
 [connection signal="toggled" from="VBoxContainer/GridContainer/Camera Invert Y" to="." method="_on_camera_invert_y_toggled"]
-[connection signal="value_changed" from="VBoxContainer/GridContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/GridContainer/Master Volume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/GridContainer/Music Volume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/GridContainer/SFX Volume" to="." method="_on_sfx_volume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/GridContainer/Typing Speed" to="." method="_on_typing_speed_value_changed"]
 [connection signal="pressed" from="VBoxContainer/Close" to="." method="close"]

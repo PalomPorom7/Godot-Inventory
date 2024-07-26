@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcv373wwgmu0r"]
+[gd_scene load_steps=10 format=3 uid="uid://dcv373wwgmu0r"]
 
 [ext_resource type="Script" path="res://Scripts/Events/coin_stack.gd" id="1_0ance"]
 [ext_resource type="Texture2D" uid="uid://bqiw08yifqyd0" path="res://Imported Assets/Dungeon/coin_stack_small_dungeon_texture.png" id="2_1guav"]
+[ext_resource type="AudioStream" uid="uid://v0sj0saa4eft" path="res://Imported Assets/Sound Effects/Coins/699524__valenspire__coin_hit_01.wav" id="3_pt3u8"]
+[ext_resource type="ArrayMesh" uid="uid://b8gxf1jkk5yjf" path="res://coin_mesh.tres" id="4_ky8a7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xe3md"]
 resource_name = "texture"
@@ -43,8 +45,11 @@ shadow_mesh = SubResource("ArrayMesh_i7bmj")
 [sub_resource type="SphereShape3D" id="SphereShape3D_lwegu"]
 radius = 1.0
 
+[sub_resource type="Curve" id="Curve_7ga56"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Coin Stack Small" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.88073, 0.05, 0)
 script = ExtResource("1_0ance")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -54,3 +59,19 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_lwegu")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_pt3u8")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+mesh = ExtResource("4_ky8a7")
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 15.0
+gravity = Vector3(0, -4, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+scale_amount_curve = SubResource("Curve_7ga56")

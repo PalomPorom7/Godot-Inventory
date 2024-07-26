@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dil80q73hnvbt"]
+[gd_scene load_steps=34 format=3 uid="uid://dil80q73hnvbt"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/game_manager.gd" id="1_8pybo"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_16ona"]
@@ -18,8 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://dj7v5xjevsp4u" path="res://Imported Assets/UI/Icons/Icon_Small_Blank_Arrow.png" id="10_1khn6"]
 [ext_resource type="FontFile" uid="uid://cal1olhubng48" path="res://Imported Assets/Fonts/Celtica-Book.ttf" id="10_p2meq"]
 [ext_resource type="FontFile" uid="uid://dtdebvoxhhvdr" path="res://Imported Assets/Fonts/MorrisRomanBlack.ttf" id="11_j2tnh"]
+[ext_resource type="AudioStream" uid="uid://c0vmmi2jew2o7" path="res://Imported Assets/Sound Effects/Coins/699496__valenspire__coin_drop_01.wav" id="11_r4v68"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7hssf"]
+
+[sub_resource type="Curve" id="Curve_xql5y"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.503311, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x06dg"]
 
@@ -119,6 +124,7 @@ offset_right = 336.0
 script = ExtResource("8_fiawx")
 _on_screen_position = Vector2(32, 32)
 _off_screen_position = Vector2(32, -42)
+_trans_type = 6
 
 [node name="Icon" type="TextureRect" parent="UI/Wallet"]
 custom_minimum_size = Vector2(0, 42)
@@ -139,6 +145,24 @@ vertical_alignment = 1
 [node name="Autohide" type="Timer" parent="UI/Wallet"]
 wait_time = 3.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI/Wallet"]
+stream = ExtResource("11_r4v68")
+bus = &"SFX"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="UI/Wallet"]
+position = Vector2(21, 21)
+emitting = false
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("9_xcrha")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 16.0
+initial_velocity_max = 32.0
+scale_amount_min = 0.05
+scale_amount_max = 0.05
+scale_amount_curve = SubResource("Curve_xql5y")
 
 [node name="Dialog" type="Control" parent="UI"]
 visible = false
