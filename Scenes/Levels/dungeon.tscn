@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dujtkfkjn3agj"]
+[gd_scene load_steps=9 format=3 uid="uid://dujtkfkjn3agj"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_lj7g2"]
 [ext_resource type="MeshLibrary" uid="uid://ixy0tpubfryo" path="res://Imported Assets/Dungeon/dungeon_mesh_library.tres" id="2_8ffms"]
 [ext_resource type="PackedScene" uid="uid://di84uda7rr2ct" path="res://Scenes/Characters/rogue.tscn" id="4_ykh5e"]
 [ext_resource type="PackedScene" uid="uid://b5pf553lktajg" path="res://Scenes/Characters/mage.tscn" id="5_a1e6b"]
+[ext_resource type="PackedScene" uid="uid://dd3eyhaa4rnvh" path="res://Scenes/Items/health_potion.tscn" id="6_egi25"]
 [ext_resource type="PackedScene" uid="uid://7pr6qxigvjoc" path="res://Scenes/Characters/knight.tscn" id="6_r644w"]
-[ext_resource type="PackedScene" uid="uid://dcv373wwgmu0r" path="res://Scenes/Items/coin_stack_small.tscn" id="6_vhjyk"]
-[ext_resource type="PackedScene" uid="uid://jjrljud3y2hy" path="res://Scenes/Items/coin_stack_medium.tscn" id="7_eprr2"]
-[ext_resource type="PackedScene" uid="uid://b0f3tcpjfh1y8" path="res://Scenes/Items/coin_stack_large.tscn" id="8_mdk0i"]
+[ext_resource type="PackedScene" uid="uid://fvdt6au8p3k5" path="res://Scenes/Items/axe.tscn" id="7_lx01p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06lu3"]
 
@@ -107,11 +106,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, -11)
 
 [node name="Player Start" type="Marker3D" parent="."]
 
-[node name="Coin Stack Small" parent="." instance=ExtResource("6_vhjyk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95355, 0.05, 0)
+[node name="Health Potion" parent="." instance=ExtResource("6_egi25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.667, -3)
 
-[node name="Coin Stack Medium" parent="." instance=ExtResource("7_eprr2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -3.387)
+[node name="Health Potion2" parent="." instance=ExtResource("6_egi25")]
+transform = Transform3D(-3.78552e-08, -0.866025, -0.5, 1, -4.37114e-08, 0, -2.18557e-08, -0.5, 0.866025, 5, 0.2, -2)
 
-[node name="Coin Stack Large" parent="." instance=ExtResource("8_mdk0i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.369, 0.05, 0)
+[node name="Axe" parent="." instance=ExtResource("7_lx01p")]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 4, 1, -3)

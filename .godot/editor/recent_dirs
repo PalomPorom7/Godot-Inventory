@@ -1,9 +1,10 @@
-res://
+res://Scripts/Player
 res://Scenes/Items
+res://Scripts
+res://
 res://Scripts/Autoloads
 res://Scripts/Events
 res://Scripts/UI
 res://Imported Assets/Dungeon
 res://Scenes/Characters
-res://Scripts
 res://Scripts/Managers

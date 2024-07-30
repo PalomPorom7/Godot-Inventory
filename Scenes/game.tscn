@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://dil80q73hnvbt"]
+[gd_scene load_steps=36 format=3 uid="uid://dil80q73hnvbt"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/game_manager.gd" id="1_8pybo"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="2_16ona"]
+[ext_resource type="Script" path="res://Scripts/Player/player.gd" id="2_16ona"]
 [ext_resource type="PackedScene" uid="uid://dujtkfkjn3agj" path="res://Scenes/Levels/dungeon.tscn" id="2_ljeyd"]
 [ext_resource type="PackedScene" uid="uid://dsgxki7n5lrmk" path="res://Scenes/Characters/barbarian.tscn" id="3_2iql4"]
-[ext_resource type="Script" path="res://Scripts/spring_arm.gd" id="3_u51m3"]
+[ext_resource type="Script" path="res://Scripts/Player/spring_arm.gd" id="3_u51m3"]
+[ext_resource type="Script" path="res://Scripts/Player/pick_up_radius.gd" id="5_8r4qp"]
 [ext_resource type="Theme" uid="uid://b1vv3jre6npvq" path="res://menu_buttons.tres" id="6_1b651"]
 [ext_resource type="Script" path="res://Scripts/UI/menu.gd" id="6_dr2w1"]
 [ext_resource type="Script" path="res://Scripts/Managers/event_manager.gd" id="6_lq361"]
@@ -21,6 +22,10 @@
 [ext_resource type="AudioStream" uid="uid://c0vmmi2jew2o7" path="res://Imported Assets/Sound Effects/Coins/699496__valenspire__coin_drop_01.wav" id="11_r4v68"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7hssf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_14at1"]
+height = 3.1
+radius = 2.0
 
 [sub_resource type="Curve" id="Curve_xql5y"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.503311, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -102,6 +107,20 @@ script = ExtResource("3_u51m3")
 
 [node name="Camera" type="Camera3D" parent="Barbarian/SpringArm3D"]
 h_offset = 1.0
+
+[node name="Pick Up Radius" type="Area3D" parent="Barbarian"]
+collision_layer = 0
+collision_mask = 32
+monitorable = false
+script = ExtResource("5_8r4qp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barbarian/Pick Up Radius"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+shape = SubResource("CylinderShape3D_14at1")
+
+[node name="RayCast3D" type="RayCast3D" parent="Barbarian/Pick Up Radius"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+collision_mask = 33
 
 [node name="Player" type="Node" parent="." node_paths=PackedStringArray("_character", "_spring_arm")]
 process_mode = 3
@@ -301,6 +320,8 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_v3vli")
 
+[connection signal="body_entered" from="Barbarian/Pick Up Radius" to="Barbarian/Pick Up Radius" method="_on_body_entered"]
+[connection signal="body_exited" from="Barbarian/Pick Up Radius" to="Barbarian/Pick Up Radius" method="_on_body_exited"]
 [connection signal="timeout" from="UI/Wallet/Autohide" to="UI/Wallet" method="close"]
 [connection signal="pressed" from="UI/Dialog/Box/Continue" to="UI/Dialog" method="_on_continue_pressed"]
 [connection signal="pressed" from="UI/Dialog/Options/Option 0" to="UI/Dialog" method="_on_option_pressed" binds= [0]]

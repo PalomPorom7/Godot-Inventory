@@ -1,15 +1,13 @@
-res://Scenes/Items/coin_stack_small.tscn
+res://Scenes/game.tscn
 res://Imported Assets/Dungeon/dungeon_mesh_library.tres
 res://Scenes/Characters/character_animations.tres
+res://coin_mesh.tres
 res://menu_buttons.tres
-res://Scripts/Events/coin_stack.gd
-res://Scripts/Events/proximity_event.gd
-res://Scenes/game.tscn
-res://Scripts/UI/counter.gd
-res://Scripts/Autoloads/music.gd
-res://Scripts/Custom Resources/settings.gd
-res://Scenes/settings_menu.tscn
-res://Scripts/UI/settings_menu.gd
-res://Scenes/Items/coin_stack_medium.tscn
-res://Scenes/Items/coin_stack_large.tscn
 res://Scenes/Levels/dungeon.tscn
+res://Scenes/Characters/barbarian.tscn
+res://Scenes/Items/axe.tscn
+res://Scripts/item.gd
+res://Scenes/Items/health_potion.tscn
+res://Scripts/Player/pick_up_radius.gd
+res://Scripts/Custom Resources/progress.gd
+res://Scripts/Player/player.gd
