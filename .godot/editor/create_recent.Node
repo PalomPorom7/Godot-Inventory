@@ -1,3 +1,10 @@
+Button
+ScrollContainer
+Label
+TextureRect
+VBoxContainer
+GridContainer
+Panel
 RayCast3D
 CollisionShape3D
 Area3D
@@ -5,10 +12,3 @@ RigidBody3D
 CPUParticles2D
 CPUParticles3D
 AudioStreamPlayer3D
-AudioStreamPlayer
-Timer
-HBoxContainer
-TextureRect
-Label
-Node3D
-Control

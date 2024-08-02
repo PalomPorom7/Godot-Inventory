@@ -6,6 +6,7 @@ extends SceneManager
 @onready var _player : Node = $Player
 @onready var _event_manager : EventManager = $"Event Manager"
 @onready var _camera : Camera3D = $Barbarian/SpringArm3D/Camera
+@onready var _inventory = $UI/Inventory
 
 func _ready():
 	# Position the character at the start position
@@ -30,6 +31,12 @@ func end_event(use_fade : bool = false):
 		if use_fade:
 			await _fade.to_clear()
 	_player.enabled = true
+
+func toggle_inventory():
+	if _inventory.is_open:
+		_inventory.close()
+	else:
+		_inventory.open()
 
 # Pause and unpause the game, display pause menu
 func toggle_pause():

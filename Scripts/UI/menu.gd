@@ -8,7 +8,8 @@ func open(breadcrumb : Menu = null):
 		_breadcrumb = breadcrumb
 		breadcrumb.close()
 	visible = true
-	_default_focus_item.grab_focus()
+	if _default_focus_item:
+		_default_focus_item.grab_focus()
 
 func close():
 	visible = false

@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/Managers/title_manager.gd" id="1_325n5"]
 [ext_resource type="Script" path="res://Scripts/UI/menu.gd" id="2_6357k"]
 [ext_resource type="FontFile" uid="uid://cal1olhubng48" path="res://Imported Assets/Fonts/Celtica-Book.ttf" id="3_nyvpv"]
-[ext_resource type="Theme" uid="uid://b1vv3jre6npvq" path="res://menu_buttons.tres" id="4_jbwlq"]
+[ext_resource type="Theme" uid="uid://b1vv3jre6npvq" path="res://Themes/menu_buttons.tres" id="4_jbwlq"]
 [ext_resource type="Script" path="res://Scripts/UI/fade.gd" id="6_67a7l"]
-[ext_resource type="PackedScene" uid="uid://cjk5t1el4suya" path="res://Scenes/settings_menu.tscn" id="7_5ptb7"]
+[ext_resource type="PackedScene" uid="uid://cjk5t1el4suya" path="res://Scenes/UI/settings_menu.tscn" id="7_5ptb7"]
 
 [node name="Title" type="Control" node_paths=PackedStringArray("_settings_menu", "_fade")]
 layout_mode = 3

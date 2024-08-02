@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjk5t1el4suya"]
 
-[ext_resource type="Theme" uid="uid://b1vv3jre6npvq" path="res://menu_buttons.tres" id="1_dw4vx"]
+[ext_resource type="Theme" uid="uid://b1vv3jre6npvq" path="res://Themes/menu_buttons.tres" id="1_dw4vx"]
 [ext_resource type="Script" path="res://Scripts/UI/settings_menu.gd" id="2_h3f06"]
 
 [node name="Settings Menu" type="PanelContainer" node_paths=PackedStringArray("_default_focus_item")]

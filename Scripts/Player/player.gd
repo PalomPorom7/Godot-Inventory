@@ -17,7 +17,11 @@ var enabled : bool = true:
 func _input(event : InputEvent):
 	if event.is_action_pressed("pause"):
 		_gm.toggle_pause()
-	if get_tree().paused || not enabled:
+	if get_tree().paused:
+		return
+	if event.is_action_pressed("inventory"):
+		_gm.toggle_inventory()
+	if not enabled:
 		return
 	if event.is_action_pressed("run"):
 		_character.run()
