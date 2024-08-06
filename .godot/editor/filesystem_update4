@@ -1,13 +1,13 @@
 res://Scenes/game.tscn
 res://Imported Assets/Dungeon/dungeon_mesh_library.tres
 res://Scenes/Characters/character_animations.tres
+res://Scripts/Custom Resources/Items/Health Potion.tres
+res://Scripts/Custom Resources/Items/Axe.tres
 res://Themes/menu_buttons.tres
 res://Themes/inventory.tres
 res://Scripts/UI/inventory.gd
 res://Scripts/Player/player.gd
-res://Scripts/Managers/game_manager.gd
 res://Scenes/Levels/dungeon.tscn
 res://Scenes/Characters/barbarian.tscn
 res://Scenes/Items/axe.tscn
 res://Scenes/Items/health_potion.tscn
-res://Scripts/UI/menu.gd

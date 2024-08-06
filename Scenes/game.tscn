@@ -187,6 +187,7 @@ scale_amount_max = 0.05
 scale_amount_curve = SubResource("Curve_xql5y")
 
 [node name="Inventory" type="Panel" parent="UI"]
+unique_name_in_owner = true
 visible = false
 anchors_preset = 8
 anchor_left = 0.5

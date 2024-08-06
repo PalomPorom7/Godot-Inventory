@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd3eyhaa4rnvh"]
+[gd_scene load_steps=8 format=3 uid="uid://dd3eyhaa4rnvh"]
 
 [ext_resource type="Script" path="res://Scripts/item.gd" id="1_dheft"]
 [ext_resource type="Texture2D" uid="uid://cgakk88ou7p4c" path="res://Imported Assets/Dungeon/bottle_A_labeled_brown_dungeon_texture.png" id="1_nto5j"]
+[ext_resource type="Resource" uid="uid://dxvn1xmhjh0ww" path="res://Scripts/Custom Resources/Items/Health Potion.tres" id="2_sopdb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1clp"]
 resource_name = "texture"
@@ -49,7 +50,7 @@ collision_mask = 801
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.33, 0)
 script = ExtResource("1_dheft")
-display_name = "Health Potion"
+resource = ExtResource("2_sopdb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.667, 0)

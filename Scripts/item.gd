@@ -1,3 +1,3 @@
 extends RigidBody3D
 
-@export var display_name : String
+@export var resource : Item

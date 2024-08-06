@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Stackable" load_steps=4 format=3 uid="uid://dxvn1xmhjh0ww"]
+
+[ext_resource type="Texture2D" uid="uid://dnhnfs5nacqbg" path="res://Imported Assets/Icons/#1 - Transparent Icons.png" id="1_4tx8h"]
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Items/stackable.gd" id="2_ye2mq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qea1d"]
+atlas = ExtResource("1_4tx8h")
+region = Rect2(0, 288, 32, 32)
+
+[resource]
+script = ExtResource("2_ye2mq")
+stack_limit = 99
+name = "Health Potion"
+description = "Drink this to recover some health."
+icon = SubResource("AtlasTexture_qea1d")

@@ -4,6 +4,7 @@ extends Node
 @export var _spring_arm : SpringArm3D
 @onready var _gm : Node3D = $/root/Game
 @onready var _pick_up_radius : Area3D = $"../Barbarian/Pick Up Radius"
+@onready var _inventory : Control = %Inventory
 var _nearest_item : Node3D
 var _input_direction : Vector2
 var _move_direction : Vector3
@@ -34,7 +35,7 @@ func _input(event : InputEvent):
 	elif event.is_action_pressed("interact"):
 		_nearest_item = _pick_up_radius.get_nearest_item()
 		if _nearest_item:
-			File.progress.add_to_inventory(_nearest_item)
+			_inventory.add_item(_nearest_item.resource)
 			_nearest_item.queue_free()
 		else:
 			_character.interact()
