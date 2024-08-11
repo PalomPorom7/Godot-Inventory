@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dil80q73hnvbt"]
+[gd_scene load_steps=43 format=3 uid="uid://dil80q73hnvbt"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/game_manager.gd" id="1_8pybo"]
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="2_16ona"]
@@ -32,6 +32,16 @@ radius = 2.0
 [sub_resource type="Curve" id="Curve_xql5y"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.503311, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7k1sd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2yii4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fcxws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wic5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkq2n"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x06dg"]
 
@@ -100,6 +110,7 @@ _fade = NodePath("UI/Fade")
 [node name="Dungeon" parent="." instance=ExtResource("2_ljeyd")]
 
 [node name="Barbarian" parent="." instance=ExtResource("3_2iql4")]
+unique_name_in_owner = true
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Barbarian"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -227,8 +238,6 @@ anchor_left = 0.6
 anchor_top = 0.2
 anchor_right = 0.95
 anchor_bottom = 0.9
-offset_right = 40.0
-offset_bottom = 40.0
 theme_override_constants/separation = 64
 
 [node name="Item Name" type="Label" parent="UI/Inventory/VBoxContainer"]
@@ -240,7 +249,31 @@ autowrap_mode = 2
 [node name="Item Description" type="Label" parent="UI/Inventory/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+size_flags_vertical = 3
 autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Inventory/VBoxContainer"]
+layout_mode = 2
+
+[node name="Auxiliary" type="Button" parent="UI/Inventory/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7k1sd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2yii4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fcxws")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wic5t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jkq2n")
+text = "X Use"
+
+[node name="Drop" type="Button" parent="UI/Inventory/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7k1sd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2yii4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fcxws")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wic5t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jkq2n")
+text = "Y Drop"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/Inventory"]
 layout_mode = 1
@@ -404,6 +437,10 @@ script = ExtResource("8_v3vli")
 [connection signal="body_entered" from="Barbarian/Pick Up Radius" to="Barbarian/Pick Up Radius" method="_on_body_entered"]
 [connection signal="body_exited" from="Barbarian/Pick Up Radius" to="Barbarian/Pick Up Radius" method="_on_body_exited"]
 [connection signal="timeout" from="UI/Wallet/Autohide" to="UI/Wallet" method="close"]
+[connection signal="focus_entered" from="UI/Inventory/VBoxContainer/HBoxContainer/Auxiliary" to="UI/Inventory" method="_on_action_button_focus_entered"]
+[connection signal="pressed" from="UI/Inventory/VBoxContainer/HBoxContainer/Auxiliary" to="UI/Inventory" method="_on_auxiliary_pressed"]
+[connection signal="focus_entered" from="UI/Inventory/VBoxContainer/HBoxContainer/Drop" to="UI/Inventory" method="_on_action_button_focus_entered"]
+[connection signal="pressed" from="UI/Inventory/VBoxContainer/HBoxContainer/Drop" to="UI/Inventory" method="_on_drop_pressed"]
 [connection signal="pressed" from="UI/Inventory/Close" to="UI/Inventory" method="close"]
 [connection signal="pressed" from="UI/Dialog/Box/Continue" to="UI/Dialog" method="_on_continue_pressed"]
 [connection signal="pressed" from="UI/Dialog/Options/Option 0" to="UI/Dialog" method="_on_option_pressed" binds= [0]]

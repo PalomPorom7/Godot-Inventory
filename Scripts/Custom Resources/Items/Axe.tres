@@ -12,3 +12,6 @@ script = ExtResource("1_i27wa")
 name = "Axe"
 description = "Choppa choppa choppa!"
 icon = SubResource("AtlasTexture_t66gb")
+scene = "res://Scenes/Items/axe.tscn"
+is_usable = false
+is_consumed_on_use = false

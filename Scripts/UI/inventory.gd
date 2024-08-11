@@ -2,11 +2,17 @@ extends Menu
 
 const PREFAB : PackedScene = preload("res://Scenes/UI/item.tscn")
 
+@onready var _character : CharacterBody3D = %Barbarian
 @onready var player : Node = %Player
 @onready var _container : Container = $ScrollContainer/GridContainer
 @onready var _item_name : Label = $"VBoxContainer/Item Name"
 @onready var _item_description : Label = $"VBoxContainer/Item Description"
+@onready var _auxiliary : Button = $VBoxContainer/HBoxContainer/Auxiliary
+@onready var _drop : Button = $VBoxContainer/HBoxContainer/Drop
 var is_open : bool
+var _selected_item : Item
+var _selected_button : Button
+var _previously_selected_button : Button
 
 func _ready():
 	for item in File.progress.inventory:
@@ -67,7 +73,8 @@ func _add_item_button(item : Item, quantity : int = 1):
 	new_item_button.get_node("Icon").texture = item.icon
 	_update_quantity(new_item_button, quantity)
 	_container.add_child(new_item_button)
-	new_item_button.focus_entered.connect(_display_item_information.bind(item))
+	new_item_button.focus_entered.connect(_display_item_information.bind(item, new_item_button))
+	new_item_button.focus_exited.connect(_display_item_information.bind(null, null))
 
 func _update_quantity(button : Button, quantity : int):
 	if quantity != 1:
@@ -75,9 +82,113 @@ func _update_quantity(button : Button, quantity : int):
 	else:
 		button.get_node("Label").visible = false
 
-func _display_item_information(item : Item = null):
+func _display_item_information(item : Item = null, button : Button = null):
 	_item_name.text = item.name if item else ""
 	_item_description.text = item.description if item else ""
+	_selected_item = item
+	_previously_selected_button = _selected_button
+	_selected_button = button
+	if item && item.is_usable:
+		_auxiliary.text = "X Use"
+		_auxiliary.disabled = false
+	else:
+		_auxiliary.disabled = true
+	_drop.disabled = not item
+
+func _input(event : InputEvent):
+	if not is_open:
+		return
+	if event.is_action_pressed("use_item"):
+		if _auxiliary.disabled == false:
+			_auxiliary.pressed.emit()
+	if event.is_action_pressed("drop_item"):
+		if _drop.disabled == false:
+			_drop.pressed.emit()
+
+func _on_action_button_focus_entered():
+	if _previously_selected_button:
+		_previously_selected_button.grab_focus()
+
+func _on_auxiliary_pressed():
+	if _selected_item:
+		if _selected_item.is_usable:
+			_use_selected_item()
+
+func _use_selected_item():
+	if _character.is_on_floor() && _character._can_move:
+		_character.use_item(_selected_item)
+		if _selected_item.is_consumed_on_use:
+			_remove_item(_selected_item, 1, _selected_button)
+		close()
+
+func _on_drop_pressed():
+	if _selected_item:
+		var instance : Node3D = load(_selected_item.scene).instantiate()
+		var direction : float = randf_range(0, TAU)
+		$/root/Game.add_child(instance)
+		instance.global_position = _character.global_position + Vector3(sin(direction), 1, cos(direction))
+		_remove_item(_selected_item, 1, _selected_button)
+
+func _remove_item(item : Item, quantity : int = 1, button : Button = null):
+	if item is Stackable:
+		_remove_stackable_item(item, quantity, button)
+	else:
+		for i in quantity:
+			_remove_single_item(item, button if i == 0 else null)
+
+func _remove_single_item(item : Item, button : Button):
+	if button:
+		File.progress.inventory.remove_at(_container.get_children().find(button))
+		_remove_item_button(button)
+		return
+	for i in File.progress.inventory.size():
+		if File.progress.inventory[i].name == item.name:
+			File.progress.inventory.remove_at(i)
+			_remove_item_button(_container.get_child(i))
+			return
+
+func _remove_stackable_item(item : Item, quantity : int = 1, button : Button = null):
+	if button:
+		var index : int = _container.get_children().find(button)
+		File.progress.inventory[index].quantity -= quantity
+		if File.progress.inventory[index].quantity <= 0:
+			quantity = -File.progress.inventory[index].quantity
+			File.progress.inventory.remove_at(index)
+			_remove_item_button(button)
+		else:
+			_update_quantity(button, File.progress.inventory[index].quantity)
+			return
+	if quantity == 0:
+		return
+	for i in File.progress.inventory.size():
+		if File.progress.inventory[i].name == item.name:
+			File.progress.inventory[i].quantity -= quantity
+			if File.progress.inventory[i].quantity <= 0:
+				quantity = -File.progress.inventory[i].quantity
+				File.progress.inventory.remove_at(i)
+				_remove_item_button(_container.get_child(i))
+			else:
+				_update_quantity(_container.get_child(i), File.progress.inventory[i].quantity)
+				return
+		if quantity == 0:
+			return
+
+func _remove_item_button(button : Button):
+	if button == _selected_button:
+		_focus_next(button)
+	if button == _previously_selected_button:
+		_previously_selected_button = null
+	button.free()
+
+func _focus_next(button : Button = null):
+	var children : int = _container.get_child_count()
+	if children < 2:
+		return
+	if not button:
+		_container.get_child(0).grab_focus()
+		return
+	var index : int = _container.get_children().find(button)
+	_container.get_child(index + (1 if index + 1 < children else -1)).grab_focus()
 
 func close():
 	if not _breadcrumb:

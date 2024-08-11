@@ -1,4 +1,5 @@
 Button
+HBoxContainer
 ScrollContainer
 Label
 TextureRect
@@ -11,4 +12,3 @@ Area3D
 RigidBody3D
 CPUParticles2D
 CPUParticles3D
-AudioStreamPlayer3D

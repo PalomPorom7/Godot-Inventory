@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=30 format=3 uid="uid://byk5dj7ny5hln"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=33 format=3 uid="uid://byk5dj7ny5hln"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yxanm"]
 animation = &"Jump_Idle"
@@ -43,6 +43,9 @@ animation = &"Interact"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tv5c7"]
 animation = &"PickUp"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vyoea"]
+animation = &"Use_Item"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4me5x"]
 advance_mode = 2
 
@@ -67,6 +70,12 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dbjcw"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i6xpg"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yi574"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_httk7"]
 state_machine_type = 2
 states/Cheer/node = SubResource("AnimationNodeAnimation_3anf0")
@@ -81,8 +90,10 @@ states/Interact/position = Vector2(537, 100)
 states/PickUp/node = SubResource("AnimationNodeAnimation_tv5c7")
 states/PickUp/position = Vector2(537, 191)
 states/Start/position = Vector2(76, 100)
-transitions = ["Start", "Idle_Pose_Start", SubResource("AnimationNodeStateMachineTransition_4me5x"), "Idle_Pose_Start", "Cheer", SubResource("AnimationNodeStateMachineTransition_2ttf3"), "Idle_Pose_Start", "Interact", SubResource("AnimationNodeStateMachineTransition_j36sj"), "Idle_Pose_Start", "PickUp", SubResource("AnimationNodeStateMachineTransition_csajn"), "Cheer", "Idle_Pose End", SubResource("AnimationNodeStateMachineTransition_63aar"), "Interact", "Idle_Pose End", SubResource("AnimationNodeStateMachineTransition_3qawr"), "PickUp", "Idle_Pose End", SubResource("AnimationNodeStateMachineTransition_aytmc"), "Idle_Pose End", "End", SubResource("AnimationNodeStateMachineTransition_dbjcw")]
-graph_offset = Vector2(-353, -138)
+states/Use_Item/node = SubResource("AnimationNodeAnimation_vyoea")
+states/Use_Item/position = Vector2(537, 276)
+transitions = ["Start", "Idle_Pose_Start", SubResource("AnimationNodeStateMachineTransition_4me5x"), "Idle_Pose_Start", "Cheer", SubResource("AnimationNodeStateMachineTransition_2ttf3"), "Idle_Pose_Start", "Interact", SubResource("AnimationNodeStateMachineTransition_j36sj"), "Idle_Pose_Start", "PickUp", SubResource("AnimationNodeStateMachineTransition_csajn"), "Cheer", "Idle_Pose End", SubResource("AnimationNodeStateMachineTransition_63aar"), "Interact", "Idle_Pose End", SubResource("AnimationNodeStateMachineTransition_3qawr"), "PickUp", "Idle_Pose End", SubResource("AnimationNodeStateMachineTransition_aytmc"), "Idle_Pose End", "End", SubResource("AnimationNodeStateMachineTransition_dbjcw"), "Idle_Pose_Start", "Use_Item", SubResource("AnimationNodeStateMachineTransition_i6xpg"), "Use_Item", "Idle_Pose End", SubResource("AnimationNodeStateMachineTransition_yi574")]
+graph_offset = Vector2(-349, -85)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_op48l"]
 advance_mode = 2

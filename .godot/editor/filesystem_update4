@@ -6,8 +6,8 @@ res://Scripts/Custom Resources/Items/Axe.tres
 res://Themes/menu_buttons.tres
 res://Themes/inventory.tres
 res://Scripts/UI/inventory.gd
-res://Scripts/Player/player.gd
 res://Scenes/Levels/dungeon.tscn
 res://Scenes/Characters/barbarian.tscn
 res://Scenes/Items/axe.tscn
 res://Scenes/Items/health_potion.tscn
+res://Scripts/character.gd
