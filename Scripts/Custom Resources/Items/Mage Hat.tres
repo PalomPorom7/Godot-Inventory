@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=4 format=3 uid="uid://crt6ymgr673ad"]
+
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Items/equipment.gd" id="1_etjc6"]
+[ext_resource type="Texture2D" uid="uid://dnhnfs5nacqbg" path="res://Imported Assets/Icons/#1 - Transparent Icons.png" id="1_mrrji"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7f4k"]
+atlas = ExtResource("1_mrrji")
+region = Rect2(0, 224, 32, 32)
+
+[resource]
+script = ExtResource("1_etjc6")
+type = 2
+name = "Mage Hat"
+description = "It's badly worn.  It has probably been passed down through multiple generations."
+icon = SubResource("AtlasTexture_g7f4k")
+scene = "res://Scenes/Items/mage_hat.tscn"
+is_usable = false
+is_consumed_on_use = false

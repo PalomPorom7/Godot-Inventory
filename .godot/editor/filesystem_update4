@@ -1,13 +1,54 @@
-res://Scenes/game.tscn
+res://Scenes/Characters/barbarian.tscn
 res://Imported Assets/Dungeon/dungeon_mesh_library.tres
 res://Scenes/Characters/character_animations.tres
 res://Scripts/Custom Resources/Items/Health Potion.tres
 res://Scripts/Custom Resources/Items/Axe.tres
 res://Themes/menu_buttons.tres
 res://Themes/inventory.tres
-res://Scripts/UI/inventory.gd
-res://Scenes/Levels/dungeon.tscn
-res://Scenes/Characters/barbarian.tscn
-res://Scenes/Items/axe.tscn
-res://Scenes/Items/health_potion.tscn
+res://Scenes/Characters/knight.tscn
+res://Scripts/Custom Resources/Items/equipment.gd
+res://Scripts/enums.gd
 res://Scripts/character.gd
+res://Scenes/Characters/mage.tscn
+res://Scenes/Characters/rogue.tscn
+res://Scripts/Custom Resources/progress.gd
+res://Scripts/UI/inventory.gd
+res://Scenes/UI/item.tscn
+res://Scenes/Items/barbarian_hat.tscn
+res://Scripts/Custom Resources/Items/Barbarian Hat.tres
+res://Scenes/Items/barbarian_cape.tscn
+res://Scripts/Custom Resources/Items/Barbarian Cape.tres
+res://Scenes/Items/barbarian_round_shield.tscn
+res://Scripts/Custom Resources/Items/Barbarian Round Shield.tres
+res://Scenes/Items/greataxe.tscn
+res://Scripts/Custom Resources/Items/Greataxe.tres
+res://Scenes/Items/sword.tscn
+res://Scripts/Custom Resources/Items/Sword.tres
+res://Scenes/Items/greatsword.tscn
+res://Scripts/Custom Resources/Items/Greatsword.tres
+res://Scenes/Items/knight_helmet.tscn
+res://Scripts/Custom Resources/Items/Knight Helmet.tres
+res://Scenes/Items/knight_cape.tscn
+res://Scripts/Custom Resources/Items/Knight Cape.tres
+res://Scenes/Items/mage_cape.tscn
+res://Scripts/Custom Resources/Items/Mage Cape.tres
+res://Scenes/Items/mage_hat.tscn
+res://Scripts/Custom Resources/Items/Mage Hat.tres
+res://Scenes/Items/rogue_cape.tscn
+res://Scripts/Custom Resources/Items/Rogue Cape.tres
+res://Scenes/Items/knife.tscn
+res://Scenes/Items/crossbow.tscn
+res://Scenes/Items/heavy_crossbow.tscn
+res://Scenes/Items/bomb.tscn
+res://Scripts/Custom Resources/Items/Knife.tres
+res://Scripts/Custom Resources/Items/Heavy Crossbow.tres
+res://Scripts/Custom Resources/Items/Crossbow.tres
+res://Scripts/Custom Resources/Items/Bomb.tres
+res://Scenes/Items/wand.tscn
+res://Scripts/Custom Resources/Items/Wand.tres
+res://Scenes/Items/staff.tscn
+res://Scripts/Custom Resources/Items/Staff.tres
+res://Scenes/Items/spellbook.tscn
+res://Scripts/Custom Resources/Items/Spellbook.tres
+res://Scenes/game.tscn
+res://Scenes/Levels/dungeon.tscn

@@ -1,3 +1,7 @@
+CollisionShape3D
+RigidBody3D
+RayCast3D
+BoneAttachment3D
 Button
 HBoxContainer
 ScrollContainer
@@ -6,9 +10,5 @@ TextureRect
 VBoxContainer
 GridContainer
 Panel
-RayCast3D
-CollisionShape3D
 Area3D
-RigidBody3D
 CPUParticles2D
-CPUParticles3D

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=4 format=3 uid="uid://ch72vpdmqwdkm"]
+
+[ext_resource type="Texture2D" uid="uid://dnhnfs5nacqbg" path="res://Imported Assets/Icons/#1 - Transparent Icons.png" id="1_esxhg"]
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Items/equipment.gd" id="1_gy8t2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04etv"]
+atlas = ExtResource("1_esxhg")
+region = Rect2(448, 224, 32, 32)
+
+[resource]
+script = ExtResource("1_gy8t2")
+type = 3
+name = "Mage Cape"
+description = "Made from the finest royal silks, it probably costs a fortune."
+icon = SubResource("AtlasTexture_04etv")
+scene = "res://Scenes/Items/mage_cape.tscn"
+is_usable = false
+is_consumed_on_use = false

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=4 format=3 uid="uid://dk1526865clw2"]
+
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Items/equipment.gd" id="1_jkpq6"]
+[ext_resource type="Texture2D" uid="uid://dnhnfs5nacqbg" path="res://Imported Assets/Icons/#1 - Transparent Icons.png" id="1_rv3ns"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0jj8"]
+atlas = ExtResource("1_rv3ns")
+region = Rect2(320, 192, 32, 32)
+
+[resource]
+script = ExtResource("1_jkpq6")
+type = 0
+name = "Staff"
+description = "Channels powerful magic."
+icon = SubResource("AtlasTexture_v0jj8")
+scene = "res://Scenes/Items/staff.tscn"
+is_usable = false
+is_consumed_on_use = false

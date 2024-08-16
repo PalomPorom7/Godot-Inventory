@@ -28,7 +28,7 @@ var _max_jump_velocity : float
 var _gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export_category("Equipment")
-@export var _main_hand : BoneAttachment3D
+@export var _sockets : Array[BoneAttachment3D]
 
 @onready var _animation : AnimationTree = $AnimationTree
 @onready var _state_machine : AnimationNodeStateMachinePlayback = _animation["parameters/playback"]
@@ -54,12 +54,27 @@ func animate(animation_name : String, locked : bool = true):
 		_can_move = true
 
 func use_item(item : Item):
+	var was_holding : Node3D
+	if _sockets[0].get_child_count() > 0:
+		was_holding = _sockets[0].get_child(0)
+		was_holding.visible = false
 	var instance : Node3D = load(item.scene).instantiate()
-	_main_hand.add_child(instance)
+	_sockets[0].add_child(instance)
 	instance.freeze = true
 	await animate("Use_Item")
 	print(name + " used a " + item.name)
 	instance.queue_free()
+	if was_holding:
+		was_holding.visible = true
+
+func don(item : Equipment):
+	var instance : Node3D = load(item.scene).instantiate()
+	_sockets[item.type].add_child(instance)
+	instance.freeze = true
+
+func doff(socket : int):
+	if _sockets[socket].get_child_count() > 0:
+		_sockets[socket].get_child(0).queue_free()
 
 func face_direction(forward_direction : float):
 	_rig.rotation.y = forward_direction

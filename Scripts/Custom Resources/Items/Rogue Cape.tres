@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=4 format=3 uid="uid://bcphydte5n0va"]
+
+[ext_resource type="Texture2D" uid="uid://dnhnfs5nacqbg" path="res://Imported Assets/Icons/#1 - Transparent Icons.png" id="1_carvl"]
+[ext_resource type="Script" path="res://Scripts/Custom Resources/Items/equipment.gd" id="1_txftq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw4vx"]
+atlas = ExtResource("1_carvl")
+region = Rect2(288, 224, 32, 32)
+
+[resource]
+script = ExtResource("1_txftq")
+type = 3
+name = "Rogue Cape"
+description = "It's padded on the inside to reduce noise and provide extra warmth."
+icon = SubResource("AtlasTexture_iw4vx")
+scene = "res://Scenes/Items/rogue_cape.tscn"
+is_usable = false
+is_consumed_on_use = false
