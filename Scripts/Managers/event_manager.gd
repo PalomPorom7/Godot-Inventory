@@ -4,6 +4,7 @@ class_name EventManager extends Node
 @onready var dialog : Control = $"../UI/Dialog"
 @onready var fade : ColorRect = $"../UI/Fade"
 @onready var camera : Camera3D = $Camera3D
+@onready var inventory : Menu = %Inventory
 @onready var _player_camera : Camera3D = $"../Barbarian/SpringArm3D/Camera"
 
 func position_cinematic_camera_to_match_player_camera():

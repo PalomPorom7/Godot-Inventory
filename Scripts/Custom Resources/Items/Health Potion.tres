@@ -12,6 +12,7 @@ script = ExtResource("2_ye2mq")
 stack_limit = 99
 name = "Health Potion"
 description = "Drink this to recover some health."
+value = 1
 icon = SubResource("AtlasTexture_qea1d")
 scene = "res://Scenes/Items/health_potion.tscn"
 is_usable = true

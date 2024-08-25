@@ -12,6 +12,7 @@ script = ExtResource("2_4vreg")
 type = 0
 name = "Axe"
 description = "Choppa choppa choppa!"
+value = 10
 icon = SubResource("AtlasTexture_advo8")
 scene = "res://Scenes/Items/axe.tscn"
 is_usable = false

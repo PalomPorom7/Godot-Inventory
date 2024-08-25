@@ -10,7 +10,7 @@ class_name Progress extends Resource
 @export var equipment : Array = [1, 2, 3, 4]
 
 func _init():
-	coins = 0
+	coins = 10
 	inventory = [
 		{"name" : "Health Potion", "quantity" : 1},
 		{"name" : "Axe"},

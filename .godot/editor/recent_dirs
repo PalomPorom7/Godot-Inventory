@@ -1,3 +1,4 @@
+res://Scripts/Events
 res://Scripts/Custom Resources/Items
 res://Scenes/Items
 res://Scripts
@@ -7,7 +8,6 @@ res://Themes
 res://Scripts/Player
 res://
 res://Scripts/Autoloads
-res://Scripts/Events
 res://Imported Assets/Dungeon
 res://Scenes/Characters
 res://Scripts/Managers

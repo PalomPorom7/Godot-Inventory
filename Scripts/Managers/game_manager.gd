@@ -36,7 +36,7 @@ func toggle_inventory():
 	if _inventory.is_open:
 		_inventory.close()
 	else:
-		_inventory.open()
+		_inventory.open_as_inventory()
 
 # Pause and unpause the game, display pause menu
 func toggle_pause():
